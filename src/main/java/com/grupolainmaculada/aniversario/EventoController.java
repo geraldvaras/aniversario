@@ -58,6 +58,6 @@ public class EventoController {
             model.addAttribute("evento", opt.get());
 
         }
-        return "redirect:/index";
+        return "redirect:/";
     }
 }

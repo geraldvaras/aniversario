@@ -6,87 +6,85 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/bootswatch/slate/bootstrap.min.css}">
 </head>
 <body>
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            </a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">DNI</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/logout">Salir</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Navbar -->
-    <div id="content">
-        <div class="container py-4">
-            <!-- Bootstrap 5 starter form -->
-            <form id="contactForm" th:object="${evento}" th:action="@{/registrar-asistencia}" method="post">
-                <div th:if="${evento.asistio}" class="alert alert-danger d-flex align-items-center" role="alert">
-                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                    <div>
-                        El invitado ya se encuentra registrado
-                    </div>
-                </div>
-                <input type="hidden" th:field="*{id}"/>
-                <input type="hidden" th:field="*{anioEvento}"/>
-                <input type="hidden" th:field="*{descripcionEvento}"/>
-                <div class="mb-3">
-                    <label class="form-label" for="empresa">Empresa</label>
-                    <input readonly  class="form-control" id="empresa" type="text" placeholder="Apellidos" th:field="*{empresaNombre}"/>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label" for="centroCosto">Centro Costo</label>
-                    <input readonly  class="form-control" id="centroCosto" type="text" placeholder="Apellidos" th:field="*{centroCosto}"/>
-                </div>
-
-                <!-- Name input -->
-                <div class="mb-3">
-                    <label class="form-label" for="nombres">Name</label>
-                    <input readonly class="form-control" id="nombres" type="text" placeholder="Nombres" th:field="*{nombres}"/>
-                </div>
-
-                <!-- Email address input -->
-                <div class="mb-3">
-                    <label class="form-label" for="apellidos">Apellidos</label>
-                    <input readonly  class="form-control" id="apellidos" type="text" placeholder="Apellidos" th:field="*{apellidos}"/>
-                </div>
-
-                <!-- Message input -->
-                <div class="mb-3">
-                    <label class="form-label" for="numeroDocumento">Numero Documento</label>
-                    <input readonly  class="form-control" id="numeroDocumento" type="text" placeholder="Apellidos" th:field="*{numeroDocumento}"/>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label" for="tipoInvitado">Tipo Invitado</label>
-                    <input readonly  class="form-control" id="tipoInvitado" type="text" placeholder="Apellidos" th:field="*{tipoInvitado}"/>
-                </div>
-
-                <!-- Form submit button -->
-                <div class="d-grid">
-                    <div th:if="${!evento.asistio}">
-                        <button class="btn btn-primary btn-lg" type="submit">Registrar Asistencia</button>
-                    </div>
-                    <div th:if="${evento.asistio}">
-                        <a href="/" class="btn btn-primary btn-lg" type="submit" >Atras</a>
-                    </div>
-                </div>
-
-            </form>
-
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">DNI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/logout">Salir</a>
+                </li>
+            </ul>
         </div>
     </div>
+</nav>
+<div class="container">
+    <!-- Navbar -->
+        <!-- Bootstrap 5 starter form -->
+    <form id="contactForm" th:object="${evento}" th:action="@{/registrar-asistencia}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{anioEvento}"/>
+        <input type="hidden" th:field="*{descripcionEvento}"/>
+        <div class="mb-3">
+            <div th:if="${evento.asistio}" class="alert alert-danger d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                    El invitado ya se encuentra registrado
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="empresa">Empresa</label>
+            <input readonly  class="form-control" id="empresa" type="text" placeholder="Apellidos" th:field="*{empresaNombre}"/>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="centroCosto">Centro Costo</label>
+            <input readonly  class="form-control" id="centroCosto" type="text" placeholder="Apellidos" th:field="*{centroCosto}"/>
+        </div>
+
+        <!-- Name input -->
+        <div class="mb-3">
+            <label class="form-label" for="nombres">Name</label>
+            <input readonly class="form-control" id="nombres" type="text" placeholder="Nombres" th:field="*{nombres}"/>
+        </div>
+
+        <!-- Email address input -->
+        <div class="mb-3">
+            <label class="form-label" for="apellidos">Apellidos</label>
+            <input readonly  class="form-control" id="apellidos" type="text" placeholder="Apellidos" th:field="*{apellidos}"/>
+        </div>
+
+        <!-- Message input -->
+        <div class="mb-3">
+            <label class="form-label" for="numeroDocumento">Numero Documento</label>
+            <input readonly  class="form-control" id="numeroDocumento" type="text" placeholder="Apellidos" th:field="*{numeroDocumento}"/>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="tipoInvitado">Tipo Invitado</label>
+            <input readonly  class="form-control" id="tipoInvitado" type="text" placeholder="Apellidos" th:field="*{tipoInvitado}"/>
+        </div>
+
+        <!-- Form submit button -->
+        <div class="d-grid">
+            <div th:if="${!evento.asistio}">
+                <button class="btn btn-primary btn-lg" type="submit">Registrar Asistencia</button>
+            </div>
+            <div th:if="${evento.asistio}">
+                <a href="/" class="btn btn-primary btn-lg" type="submit" >Atras</a>
+            </div>
+        </div>
+
+    </form>
 </div>
 <!-- Navbar -->
 <!-- jQuery -->

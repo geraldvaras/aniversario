@@ -5,27 +5,28 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/bootswatch/slate/bootstrap.min.css}">
 </head>
 <body>
 <div class="container">
-    <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-danger">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                </a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">DNI</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/logout">Salir</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">DNI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/logout">Salir</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
+    <div id="content">
         <div class="d-flex align-items-center" style="min-height: 100vh">
             <div class="box w-100 text-success">
                 <form class='form-inline'
