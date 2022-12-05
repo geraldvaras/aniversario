@@ -45,7 +45,6 @@ public class BasicaConfiguration {
                 .password(passwordEncoder.encode("I2022"))
                 .roles("USER")
                 .build();
-
         return new InMemoryUserDetailsManager(user, veronica, aracely, daniela, mayri, irene);
     }
 
