@@ -16,22 +16,37 @@ public class BasicaConfiguration {
 
     @Bean
     public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
-        UserDetails user = User.withUsername("kathieen")
-                .password(passwordEncoder.encode("k2022"))
+        UserDetails user = User.withUsername("KATHIEEN")
+                .password(passwordEncoder.encode("K2022"))
                 .roles("USER")
                 .build();
 
-        UserDetails admin = User.withUsername("veronica")
-                .password(passwordEncoder.encode("v2022"))
+        UserDetails veronica = User.withUsername("VERONICA")
+                .password(passwordEncoder.encode("V2022"))
                 .roles("USER")
                 .build();
 
-        UserDetails aracely = User.withUsername("aracely")
-                .password(passwordEncoder.encode("a2022"))
+        UserDetails aracely = User.withUsername("ARACELI")
+                .password(passwordEncoder.encode("A2022"))
                 .roles("USER")
                 .build();
 
-        return new InMemoryUserDetailsManager(user, admin, aracely);
+        UserDetails daniela = User.withUsername("DANIELA")
+                .password(passwordEncoder.encode("D2022"))
+                .roles("USER")
+                .build();
+
+        UserDetails mayri = User.withUsername("MAYRI")
+                .password(passwordEncoder.encode("M2022"))
+                .roles("USER")
+                .build();
+
+        UserDetails irene = User.withUsername("IRENE")
+                .password(passwordEncoder.encode("I2022"))
+                .roles("USER")
+                .build();
+
+        return new InMemoryUserDetailsManager(user, veronica, aracely, daniela, mayri, irene);
     }
 
     @Bean
